@@ -1,6 +1,7 @@
 use crate::class::Class;
 use crate::opt::Opt;
 use crate::row::Row;
+use std::fmt;
 use std::net::Ipv4Addr;
 
 #[derive(Debug)]
@@ -102,5 +103,21 @@ impl Iterator for Data {
 
             Some(Row::new(network, first_ip, last_ip, broadcast))
         }
+    }
+}
+
+impl fmt::Display for Data {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "IP: {}
+MASK: {}
+SUBNETWORKS: {}
+SUBMASK: {}
+HOSTS: {}
+JUMP: {}
+CLASS: {}",
+            self.ip, self.mask, self.subnetworks, self.submask, self.hosts, self.jump, self.class
+        )
     }
 }
