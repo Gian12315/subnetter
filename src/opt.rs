@@ -18,4 +18,8 @@ pub struct Opt {
     /// Save to a csv file
     #[structopt(short, parse(from_os_str))]
     pub path: Option<PathBuf>,
+
+    /// Whenever print debug data or not
+    #[structopt(short)]
+    pub debug: bool,
 }

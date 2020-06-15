@@ -13,6 +13,10 @@ use structopt::StructOpt;
 fn main() -> io::Result<()> {
     let config = Opt::from_args();
     let data = Data::new(&config);
+    if config.debug {
+        println!("{}\n", data);
+    }
+
     if let Some(path) = &config.path {
         let mut writer = Writer::from_path(&path)?;
         for row in data {
@@ -25,5 +29,6 @@ fn main() -> io::Result<()> {
             println!("{}", row);
         }
     }
+
     Ok(())
 }

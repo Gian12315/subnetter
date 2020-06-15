@@ -1,3 +1,4 @@
+use std::fmt;
 use std::process;
 
 #[derive(Debug)]
@@ -18,5 +19,17 @@ impl Class {
                 process::exit(1);
             }
         }
+    }
+}
+
+impl fmt::Display for Class {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", {
+            match self {
+                Class::A => "A",
+                Class::B => "B",
+                Class::C => "C",
+            }
+        })
     }
 }
