@@ -5,9 +5,10 @@ You can print the results to the terminal (default), or exporting them to a csv 
 ## Usage
 
     USAGE:
-        subnetter [OPTIONS] <ip> <mask> <subnetworks>
+        subnetter [FLAGS] [OPTIONS] <ip> <mask> <subnetworks>
 
     FLAGS:
+        -d               Whenever print debug data or not
         -h, --help       Prints help information
         -V, --version    Prints version information
 
